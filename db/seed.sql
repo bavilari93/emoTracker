@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS emotion CASCADE;
+
+CREATE TABLE users(
+	id SERIAL PRIMARY KEY,
+	email VARCHAR NOT NULL UNIQUE, 
+	password VARCHAR NOT NULL
+	);
+
+CREATE TABLE emotion (
+	id SERIAL PRIMARY KEY, 
+	user_id INT REFERENCES users(id), 
+	type VARCHAR, 
+	date DATE
+);
