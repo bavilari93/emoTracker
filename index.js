@@ -33,6 +33,8 @@ app.use(cookieParser());
 app.use('/user', require('./controllers/user'));
 app.use('/emo',auth.restrict, require('./controllers/emotion'));
 
+// have a restriction after clicking and then send info 
+// with the new person who subscribed 
 // the first route renders the index
 app.get('/',(req, res)=>{
 	res.render('index');

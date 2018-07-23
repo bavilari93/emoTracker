@@ -1,4 +1,12 @@
+* body {
+    margin: 0;
+    padding: 0;
+}
 
+html {
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .container{
 display: flex;
 justify-content: center;
@@ -55,4 +63,28 @@ section a{
 	background-color: transparent;
 	color: white;
 
+}
+/*images o emotions*/
+.emo-index{
+	background-color: #aeb6cf;
+	max-height: 100%;
+}
+.emo-index h1{
+	color: white;
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 3rem;
+    letter-spacing: .5rem;
+    line-height: 3rem;
+    font-weight: 400;
+}
+section.emo-container{
+	width: 60%;
+/*	height: 200px;*/
+	display: row;
+}
+img.emo{
+	float:left;
+	max-width: 40%;
+	margin: .3rem;
 }
