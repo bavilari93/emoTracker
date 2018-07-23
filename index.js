@@ -5,7 +5,7 @@ bodyParser = require('body-parser'),
 session= require('express-session'), 
 cookieParser = require('cookie-parser'), 
 mustacheExpress = require('mustache-express'), 
-PORT = process.env.PORT || 8000,
+PORT = process.env.PORT || 4000,
 app = express();
 
 // indicate all the views 
@@ -22,15 +22,16 @@ app.use(session({
 }));
 
 // keep cookies and password - log in 
-// const auth = require('./services/auth');
-// app.use(auth.passportInstance);
-// app.use(auth.passportSession);
+const auth = require('./services/auth');
+app.use(auth.passportInstance);
+app.use(auth.passportSession);
 
-// app.use(bodyParser.urlencoded({extended:true}));
-// app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookieParser());
 
 // controllers routing 
-
+app.use('/user', require('./controllers/user'));
+app.use('/emo',auth.restrict, require('./controllers/emotion'));
 
 // the first route renders the index
 app.get('/',(req, res)=>{

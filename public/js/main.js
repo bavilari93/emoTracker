@@ -1,3 +1,3 @@
-$(document).ready()=>{
+$( document ).ready(()=>{
 console.log('this is ready');
-} // end of jquery
+})// end of jquery
