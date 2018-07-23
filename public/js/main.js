@@ -1,9 +1,8 @@
 $( document ).ready(()=>{
 console.log('this is ready');
 
-$('.emo').click(()=>{
-	console.log(this)
-	const $value = $(this).attr("title");
+$('.emo').click(function(){
+	var $value = $(this).attr('alt');
 	console.log($value);
 })
 
