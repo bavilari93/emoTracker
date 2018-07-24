@@ -49,5 +49,4 @@ router.post('/login', passport.authenticate(
 // user profile
 
 
-
 module.exports = router;
