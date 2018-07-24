@@ -11,5 +11,5 @@ CREATE TABLE emotion (
 	id SERIAL PRIMARY KEY, 
 	user_id INT REFERENCES users(id), 
 	type VARCHAR, 
-	date DATE
+	date DATE DEFAULT CURRENT_TIMESTAMP
 );
