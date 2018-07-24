@@ -2,15 +2,14 @@ const router = require('express').Router();
 const emotion = require('../models/emotion.js')
 
 
-router.get('/', (req, res) => {
-    console.log(res);
+router.get('/:id', (req, res) => {
+    console.log('inside just onedestination in controllers',req.params.id);
     emotion
-        .findAllByUser(req.user.id)
+        .findAllByUser(req.params.id,req.user.id)
         .then(emo => {
         	console.log(emo)
             res.render('user/user', {
-                emo: emo,
-                email: req.user.email
+                emo: emo
             })
         })
         .catch(err => {
