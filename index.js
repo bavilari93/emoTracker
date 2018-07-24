@@ -37,7 +37,7 @@ app.use('/emo',auth.restrict, require('./controllers/emotion'));
 // with the new person who subscribed 
 // the first route renders the index
 app.get('/',(req, res)=>{
-	res.render('index');
+	// res.render('index');
 })
 
 app.listen(PORT, ()=> console.log(`Twingo listening 🌝 from ${PORT}`))

@@ -1,7 +1,8 @@
 const db = require('../db/set-up');
 
-// user and destinations to display user/id
+// user and emotion to display user/id
 const findAllByUser = (userId) =>{
+	console.log('this is user Id', userId);
 	return db.any(`SELECT * FROM emotion WHERE user_id=$1`, [userId]);
 }
 

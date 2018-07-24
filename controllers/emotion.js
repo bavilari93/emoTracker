@@ -1,27 +1,31 @@
 const router = require('express').Router();
-const emotion = require('../models/emotion.js')
+const Emotion = require('../models/emotion.js')
 
 
-router.get('/:id', (req, res) => {
-    console.log('inside just onedestination in controllers',req.params.id);
-    emotion
-        .findAllByUser(req.params.id,req.user.id)
+router.get('/', (req, res) => {
+    console.log('inside just onedestination in controllers',req.user.id);
+            res.render('user/user');
+});
+
+router.get('/user', (req, res) =>{
+    console.log('indide of id of user', req.user.id);
+    Emotion
+        .findAllByUser(req.user.id)
         .then(emo => {
-        	console.log(emo)
-            res.render('user/user', {
-                emo: emo
+            console.log('this is the info i get from find all', emo)
+            res.render('index', {
+                emo: emo, 
+                email: req.user.email
             })
         })
-        .catch(err => {
-            console.log('error from profile', err);
-        })
+        .catch(err => console.log(err));
 });
 
 
 // ///////// CRUD /////////////
 router.post('/', (req, res) => {
     console.log('this is the id of the use', req.user.id);
-    emotion
+    Emotion
         .create(req.body , req.user.id)
         .then(emo =>{
             console.log('this is the json received', res.json(emo));

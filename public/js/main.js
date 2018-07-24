@@ -22,7 +22,7 @@ const createEmotion = (emotion) => {
 		type : 'POST', 
 		data : type, 
 		success : res => {
-			window.location.replace(`/user/${res.id}`)
+			window.location.replace(`/emo/user`)
 		}, 
 		error : err => {
 			console.log('error from emotion POST ' , err);
