@@ -27,7 +27,7 @@ h2 {
     color: gray;
 }
 
-.container section {
+section .container {
     width: 15rem;
 }
 
@@ -106,3 +106,21 @@ img.emo {
     max-width: 40%;
     margin: .3rem;
 }
+/*user emo selector */
+.all-emotion {
+    display: none;
+    flex-direction: column;
+}
+.most-emotion{
+    display: none;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+

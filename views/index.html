@@ -12,12 +12,30 @@
 </head>
 
 <body>
+    <a href="/user/logout"><h2>Logout</h2></a>
+    <div class="button-container">
+        <button class="emo-selector" value="all-emotion">▷emotion tracker</button>
+        <button class="emo-selector" value="most-emotion">▷Top emotions</button>
+        
+    </div>
+
+ <div id="emotion-mode">
+    <div class="all-emotion">
 	<h1> this is intro {{email}} </h1>
 		<div class="container">
 			{{#emo}}
 			<h2>{{type}}</h2>
+            <p> {{date}} </p>
+            <p>{{user_id}}</p>
 			{{/emo}}
 		</div>
+    </div>
+    <div class ="most-emotion">
+        <h1>this is most emotions</h1>
+    </div>
+</div>
+
+    <div class=""></div>
 </body>
 
 </html>
