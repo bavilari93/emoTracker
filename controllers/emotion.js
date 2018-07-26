@@ -16,11 +16,21 @@ router.get('/user', (req, res) =>{
             res.render('index', {
                 emo: emo, 
                 email: req.user.email
-            })
+            }) 
         })
         .catch(err => console.log(err));
+
 });
 
+router.get('/top', (req, res) =>{
+    Emotion
+        .mostEmotion(req.user.id)
+        .then(emo =>{
+            res.render('emotion/emotion', {
+                emo1: emo
+            })
+        }).catch(err => console.log(err));
+})
 
 // ///////// CRUD /////////////
 router.post('/', (req, res) => {

@@ -18,8 +18,9 @@ const create = (emotion, userId) => {
 }
 
 // number of emotion with out date
-function mostEmotion(user) {
+const mostEmotion = (userId) => {
 	console.log(mostEmotion);
-  return db.any(`SELECT type, COUNT(*) FROM emotion WHERE user_id= $1`, [userId]);
+  return db.any(` SELECT type, COUNT(*) FROM emotion WHERE user_id= $1 GROUP BY type`, [userId]);
 }
+
 module.exports = {findAllByUser, create, mostEmotion}

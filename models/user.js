@@ -27,4 +27,5 @@ function findByEmail (email) {
   );
 };
 
+
 module.exports = {create, findByEmail};
