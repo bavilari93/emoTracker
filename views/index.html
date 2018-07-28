@@ -8,6 +8,7 @@
     <title>HOME</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script  src="/js/jquery.js"type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script src="/js/main.js"type="text/javascript"></script>
 </head>
 
@@ -22,6 +23,8 @@
  <div id="emotion-mode">
     <div class="all-emotion">
 	<h1> this is intro {{email}} </h1>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
 		<div class="container">
 			{{#emo}}
 			<h2>{{type}}</h2>

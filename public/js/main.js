@@ -60,4 +60,40 @@ $(document).ready(() => {
         	}
     }
 
-}) // end of jquery
+    // line chart 
+    const ctx = $("#myChart");
+    console.log(ctx)
+
+    let chart = new Chart(ctx , {
+    	type: 'line', 
+    	data: {
+    		labels : ["january" , "February", "March", "April", "May", "June","july"], 
+    		datasets: [
+    		{
+    			label: "My first dataset",
+    			fill: false, 
+    			lineTension:  0.1,
+    			background:'rgba(75,192,192,0.4', 
+    			borderColor:'rgba(75,192,192,1)', 
+    			boderCapStyle:'butt',
+    			boderDash:[], 
+    			boderDashOffset:0.0, 
+    			boderJoinStyle: 'miter', 
+    			pointBoderColor:'rgba(75,192,192,1)', 
+    			pointBackgroundColor: '#fff', 
+    			pointerBoderWidth: 1, 
+    			pointHoverRadious: 5,
+    			pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+    			pointHoverBoderColor: 'rgba(220,220,220,1)', 
+    			PintHoverBoderWidth: 2, 
+    			pointRadius: 1, 
+    			pointHitRadious: 10, 
+    			data: [65, 59 ,80, 81 , 56 , 56 , 55, 40],
+
+    		}
+    		]
+    	}
+    })
+
+     }) // end of jquery
+
