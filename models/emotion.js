@@ -3,7 +3,7 @@ const db = require('../db/set-up');
 // user and emotion to display user/id
 const findAllByUser = (userId) =>{
 	console.log('this is user Id', userId);
-	return db.any(`SELECT * FROM emotion WHERE user_id=$1`, [userId]);
+	return db.any(`SELECT EXTRACT(month FROM date)AS month, EXTRACT(day FROM date)AS day, type FROM emotion WHERE date > now() -interval '1 week' and user_id=$1`, [userId]);
 }
 
 // create a new emotion 

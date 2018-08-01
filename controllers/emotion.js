@@ -12,7 +12,7 @@ router.get('/user', (req, res) =>{
     Emotion
         .findAllByUser(req.user.id)
         .then(emo => {
-            console.log('this is the info i get from find all', emo)
+            // console.log('this is the info i get from find all', emo)
             res.render('index', {
                 emo: emo, 
                 email: req.user.email

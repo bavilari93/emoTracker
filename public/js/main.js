@@ -15,6 +15,8 @@ $(document).ready(() => {
 
 
     ///////////// emotion CRUD //////////////////
+    // var moment = require('moment');
+    // console.log(moment().format('dddd'));
 
     const createEmotion = (emotion) => {
         const type = {

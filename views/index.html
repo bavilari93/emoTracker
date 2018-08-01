@@ -8,7 +8,7 @@
     <title>HOME</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script  src="/js/jquery.js"type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="/js/main.js"type="text/javascript"></script>
 </head>
 
@@ -22,14 +22,14 @@
 
  <div id="emotion-mode">
     <div class="all-emotion">
-	<h1> this is intro {{email}} </h1>
+	<h1> this is intro {{email}} {{date}} </h1>
     <canvas id="myChart" width="400" height="400"></canvas>
 
 		<div class="container">
 			{{#emo}}
+            <div class="month">{{month}}</div>
+            <div clas="date">{{day}}</div>
 			<h2>{{type}}</h2>
-            <p> {{date}} </p>
-            <p>{{user_id}}</p>
 			{{/emo}}
 		</div>
     </div>
