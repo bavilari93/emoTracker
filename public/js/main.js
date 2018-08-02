@@ -58,7 +58,6 @@ $(document).ready(() => {
                 url: "http://localhost:9000/emo/test",
                 method: 'GET',
                 success: function(data) {
-                 console.log(data)
                  dataView(data);
                   },
                 error: function(data) {
@@ -74,8 +73,19 @@ $(document).ready(() => {
 
 
 const dataView = (data)=>{
+	const month=[], 
+	day=[], 
+	type=[]
 	console.log("this is the data received", data);
-}
+
+	data.forEach((e)=>{
+		month.push(e.month);
+		day.push(e.day);
+		type.push(e.type);
+	})
+
+	console.log(month);
+
     // line chart 
     const ctx = $("#myChart");
     console.log(ctx)
@@ -83,9 +93,9 @@ const dataView = (data)=>{
     let chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["january", "February", "March", "April", "May", "June", "july"],
+            labels: month,
             datasets: [{
-                label: "My first dataset",
+                label: confuse,
                 fill: false,
                 lineTension: 0.1,
                 background: 'rgba(75,192,192,0.4',
@@ -103,9 +113,10 @@ const dataView = (data)=>{
                 PintHoverBoderWidth: 2,
                 pointRadius: 1,
                 pointHitRadious: 10,
-                data: [65, 59, 80, 81, 56, 56, 55, 40],
+                data: day,
 
             }]
         }
     })
+ }
 }) // end of jquery
