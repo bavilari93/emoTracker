@@ -16,11 +16,22 @@ router.get('/user', (req, res) =>{
             res.render('index', {
                 emo: emo, 
                 email: req.user.email
-            }) 
+            })
         })
         .catch(err => console.log(err));
 
 });
+
+router.get('/test', (req, res) => {
+    console.log('this is test')
+     console.log('indide of id of user', req.user.id);
+    Emotion
+        .findAllByUser(req.user.id)
+        .then(emo => {
+            // console.log('this is the info i get from find all', emo)
+            res.json(emo)
+        })
+})
 
 router.get('/top', (req, res) =>{
     Emotion
