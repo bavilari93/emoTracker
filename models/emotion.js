@@ -3,7 +3,11 @@ const db = require('../db/set-up');
 // user and emotion to display user/id
 const findAllByUser = (userId) =>{
 	console.log('this is user Id', userId);
-	return db.any(`SELECT EXTRACT(month FROM date)AS month, EXTRACT(day FROM date)AS day, type FROM emotion WHERE date > now() -interval '1 week' and user_id=$1`, [userId]);
+	return db.any(`SELECT type, EXTRACT(day FROM date)AS day, to_char((date)::date, 'month') from emotion WHERE date > now() -interval '1 week' and user_id=$1`, [userId]);
+}
+const findWeekByUser = (userId) =>{
+	console.log(`this is the user Id ${userId}`);
+	return db.any(`SELECT type, EXTRACT(day FROM date)AS day, to_char((date)::date, 'month') from emotion WHERE user_id=$1`, [userId]);
 }
 
 // create a new emotion 
@@ -23,4 +27,4 @@ const mostEmotion = (userId) => {
   return db.any(` SELECT type, COUNT(*) FROM emotion WHERE user_id= $1 GROUP BY type`, [userId]);
 }
 
-module.exports = {findAllByUser, create, mostEmotion}
+module.exports = {findAllByUser,findWeekByUser, create, mostEmotion}

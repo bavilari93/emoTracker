@@ -37,9 +37,7 @@ router.get('/top', (req, res) =>{
     Emotion
         .mostEmotion(req.user.id)
         .then(emo =>{
-            res.render('emotion/emotion', {
-                emo1: emo
-            })
+            res.json(emo)
         }).catch(err => console.log(err));
 })
 

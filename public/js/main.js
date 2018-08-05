@@ -53,9 +53,16 @@ $(document).ready(() => {
         if (mode === 'all-emotion') {
             $modeSelector.style.display = 'block'
             console.log('this is all emotion');
-            // get info from table emotion
+            
+        } else if (mode === 'most-emotion') {
+            $modeSelector.style.display = 'block'
+           console.log('fix this one with test route')
+  
+        }else if(mode === 'top-emotion'){
+        	 $modeSelector.style.display = 'block'
+        	          // get info from table emotion
             $.ajax({
-                url: "http://localhost:9000/emo/test",
+                url: "http://localhost:9000/emo/top",
                 method: 'GET',
                 success: function(data) {
                  dataView(data);
@@ -64,8 +71,6 @@ $(document).ready(() => {
                     console.log(data);
                 }
             })
-        } else if (mode === 'most-emotion') {
-            $modeSelector.style.display = 'block'
         } else {
             console.log('test')
         }
@@ -73,18 +78,15 @@ $(document).ready(() => {
 
 
 const dataView = (data)=>{
-	const month=[], 
-	day=[], 
+	const count=[], 
 	type=[]
 	console.log("this is the data received", data);
-
 	data.forEach((e)=>{
-		month.push(e.month);
-		day.push(e.day);
+		count.push(e.count);
 		type.push(e.type);
 	})
 
-	console.log(month);
+	console.log(count);
 
     // line chart 
     const ctx = $("#myChart");
@@ -93,9 +95,9 @@ const dataView = (data)=>{
     let chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: month,
+            labels: type,
             datasets: [{
-                label: confuse,
+                label: "Top emotions",
                 fill: false,
                 lineTension: 0.1,
                 background: 'rgba(75,192,192,0.4',
@@ -113,7 +115,7 @@ const dataView = (data)=>{
                 PintHoverBoderWidth: 2,
                 pointRadius: 1,
                 pointHitRadious: 10,
-                data: day,
+                data: count,
 
             }]
         }

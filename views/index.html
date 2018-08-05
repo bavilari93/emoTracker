@@ -15,19 +15,19 @@
 <body>
     <a href="/user/logout"><h2>Logout</h2></a>
     <div class="button-container">
-        <button class="emo-selector" value="all-emotion" >▷emotion tracker</button>
-        <button href="/emo/top" class="emo-selector" value="most-emotion">▷TBD</button>
-          <a href="/emo/top"><h2>top emotion </h2></a>
+        <button class="emo-selector" value="all-emotion" >▷WEEK EMOTION</button>
+        <button href="/emo/top" class="emo-selector" value="most-emotion">▷All Emotion</button>
+
+        <button href="/emo/top" class="emo-selector" value="top-emotion">▷Top emotion</button>
+
     </div>
 
  <div id="emotion-mode">
     <div class="all-emotion">
-	<h1> this is intro {{email}} {{date}} </h1>
-    <canvas id="myChart" width="200" height="200"></canvas>
-
+	<h1> This week's emotions </h1>
 		<div class="container">
 			{{#emo}}
-            <div class="month">{{month}}</div>
+            <div class="month">{{to_char}}</div>
             <div clas="date">{{day}}</div>
 			<h2>{{type}}</h2>
 			{{/emo}}
@@ -35,6 +35,9 @@
     </div>
     <div class ="most-emotion">
         <h1>this is most emotions</h1>
+    </div>
+    <div class="top-emotion">
+         <canvas id="myChart" width="200" height="200"></canvas> 
     </div>
 </div>
 

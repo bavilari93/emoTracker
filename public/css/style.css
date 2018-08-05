@@ -115,6 +115,10 @@ img.emo {
     display: none;
     flex-direction: column;
 }
+.top-emotion{
+    display: none;
+    flex-direction: column;
+}
 
 
 
