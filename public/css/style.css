@@ -118,8 +118,12 @@ img.emo {
 .top-emotion{
     display: none;
     flex-direction: column;
+    width: 40vw;
 }
 
+canvas#myChart{
+    width: 100%;
+}
 
 
 

@@ -41,6 +41,14 @@ router.get('/top', (req, res) =>{
         }).catch(err => console.log(err));
 })
 
+router.get('/all', (req, res)=>{
+    Emotion
+        .findWeekByUser(req.user.id)
+        .then(emo =>{
+            res.json(emo)
+        }).catch(err => console.log(err));
+})
+
 // ///////// CRUD /////////////
 router.post('/', (req, res) => {
     console.log('this is the id of the use', req.user.id);

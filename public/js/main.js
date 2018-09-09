@@ -57,6 +57,18 @@ $(document).ready(() => {
         } else if (mode === 'most-emotion') {
             $modeSelector.style.display = 'block'
            console.log('fix this one with test route')
+           $.ajax({
+            url:"http://localhost:9000/emo/all", 
+            method: 'GET', 
+            success: function(data){
+                console.log(data)
+                renderAllEmotions(data)
+            }, 
+            error: function(data){
+                console.log(data);
+            }
+
+           })
   
         }else if(mode === 'top-emotion'){
         	 $modeSelector.style.display = 'block'
@@ -76,6 +88,10 @@ $(document).ready(() => {
         }
     }
 
+const renderAllEmotions = (data)=>{
+    console.log(data);
+}
+
 
 const dataView = (data)=>{
 	const count=[], 
@@ -93,7 +109,7 @@ const dataView = (data)=>{
     console.log(ctx)
 
     let chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: type,
             datasets: [{
