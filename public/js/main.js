@@ -56,12 +56,10 @@ $(document).ready(() => {
             
         } else if (mode === 'most-emotion') {
             $modeSelector.style.display = 'block'
-           console.log('fix this one with test route')
            $.ajax({
             url:"http://localhost:9000/emo/all", 
             method: 'GET', 
             success: function(data){
-                console.log(data)
                 renderAllEmotions(data)
             }, 
             error: function(data){
@@ -89,7 +87,21 @@ $(document).ready(() => {
     }
 
 const renderAllEmotions = (data)=>{
-    console.log(data);
+    data.forEach((e)=>{
+        console.log(e);
+        const container = document.createElement('div')
+        container.classList.add('emo-container')
+        const emoContainer = $('.most-emotion').append(container);
+        const textTag = document.createElement('h1')
+        const dateText = document.createElement('p')
+
+        emoContainer.append(textTag);
+        emoContainer.append(dateText)
+        textTag.innerHTML=`${e.type}`
+        dateText.innerHTML = `${e.day}, ${e.to_char}`
+
+
+    })
 }
 
 
