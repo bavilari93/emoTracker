@@ -51,11 +51,11 @@ $(document).ready(() => {
         const $modeSelector = emoMode.querySelectorAll(`.${mode}`)[0];
         remover(modeList);
         if (mode === 'all-emotion') {
-            $modeSelector.style.display = 'block'
+            $modeSelector.style.display = 'flex'
             console.log('this is all emotion');
             
         } else if (mode === 'most-emotion') {
-            $modeSelector.style.display = 'block'
+            $modeSelector.style.display = 'flex'
            $.ajax({
             url:"http://localhost:9000/emo/all", 
             method: 'GET', 
@@ -69,7 +69,7 @@ $(document).ready(() => {
            })
   
         }else if(mode === 'top-emotion'){
-        	 $modeSelector.style.display = 'block'
+        	 $modeSelector.style.display = 'flex'
         	          // get info from table emotion
             $.ajax({
                 url: "http://localhost:9000/emo/top",
@@ -88,15 +88,13 @@ $(document).ready(() => {
 
 const renderAllEmotions = (data)=>{
     data.forEach((e)=>{
-        console.log(e);
         const container = document.createElement('div')
-        container.classList.add('emo-container')
-        const emoContainer = $('.most-emotion').append(container);
-        const textTag = document.createElement('h1')
         const dateText = document.createElement('p')
-
-        emoContainer.append(textTag);
-        emoContainer.append(dateText)
+        const textTag = document.createElement('h1')
+        container.classList.add('most-emo')
+        const emoContainer = $('.most-emotion').append(container);
+        container.append(textTag);
+        container.append(dateText)
         textTag.innerHTML=`${e.type}`
         dateText.innerHTML = `${e.day}, ${e.to_char}`
 
