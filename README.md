@@ -5,7 +5,9 @@ The data is store in three forms:
 
 weekly emotions ordared by day 
 All emotions 
-and last i utilized a dependency called chart.js to display the emotions that tha user have picked the most.
+I utilized a dependency called chart.js to display the emotions that tha user have picked the most.This dependicy passes the information by making a http request to the backend to retrived the user information.
 
 The idea of this full stack application is to keep track of emotions by a simple picker 
 later feather such as comments will be added.
+
+
